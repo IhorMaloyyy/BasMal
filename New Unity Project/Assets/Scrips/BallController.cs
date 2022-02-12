@@ -12,8 +12,6 @@ public class BallController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         float playerInput = Input.GetAxis("Horizontal");
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.Space))
