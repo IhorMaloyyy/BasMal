@@ -14,8 +14,13 @@ public class Counter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        AddScore();
+        Destroy(other.gameObject);
+    }
+
+    private void AddScore()
+    {
         score++;
         scoreText.text = "Score: " + score;
-        Destroy(other.gameObject);
     }
 }
