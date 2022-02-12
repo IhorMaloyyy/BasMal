@@ -1,20 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
     private Rigidbody playerRb;
-    [SerializeField] private float speed = 4.0f;
+    
+    [SerializeField] private float ballForce = 4.0f;
 
-    void Start()
+    [SerializeField] private float rotationSpeed;
+
+    private void Start()
     {
+        
         playerRb = GetComponent<Rigidbody>();
-        float playerInput = Input.GetAxis("Horizontal");
     }
-    void Update()
+    private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        float playerInput = Input.GetAxis("Horizontal");
+        transform.Rotate(Vector3.up, playerInput * rotationSpeed * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             BallThrowing();
         }
@@ -23,6 +26,7 @@ public class BallController : MonoBehaviour
     private void BallThrowing()
     {
         playerRb.isKinematic = false;
-        playerRb.AddForce(transform.forward * speed, ForceMode.Impulse);
+        playerRb.AddForce(transform.forward * ballForce, ForceMode.Impulse);
     }
+
 }
