@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Rigidbody playerRb;
+    [SerializeField] private float speed = 4.0f;
+
     void Start()
     {
-        
+        playerRb = GetComponent<Rigidbody>();
+        float playerInput = Input.GetAxis("Horizontal");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Space))
+        {
+            BallThrowing();
+        }
+    }
+
+    private void BallThrowing()
+    {
+        playerRb.isKinematic = false;
+        playerRb.AddForce(transform.forward * speed, ForceMode.Impulse);
     }
 }
