@@ -8,25 +8,31 @@ public class BallController : MonoBehaviour
 
     [SerializeField] private float rotationSpeed;
 
+    [SerializeField] private GameObject mainCamera;
     private void Start()
     {
-        
         playerRb = GetComponent<Rigidbody>();
+        mainCamera = GameObject.Find("Main Camera");
     }
     private void Update()
     {
-        float playerInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up, playerInput * rotationSpeed * Time.deltaTime);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             BallThrowing();
         }
+
+        BallRotation();
     }
 
     private void BallThrowing()
     {
         playerRb.isKinematic = false;
         playerRb.AddForce(transform.forward * ballForce, ForceMode.Impulse);
+    }
+
+    private void BallRotation()
+    {
+        transform.rotation = mainCamera.transform.rotation;
     }
 
 }

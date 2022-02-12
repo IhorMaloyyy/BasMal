@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class CameraRotation : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    void LateUpdate()
+    [SerializeField] private float rotationSpeed;
+    void Update()
     {
-        transform.rotation = player.transform.rotation;
+        float playerInput = Input.GetAxis("Horizontal");
+        transform.Rotate(Vector3.up, playerInput * rotationSpeed * Time.deltaTime);
     }
 }
