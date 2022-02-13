@@ -125,6 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf59574890767ea4ca1fe3eddcbf4535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballForce: 30
+  ballForce: 50
   rotationSpeed: 30
   mainCamera: {fileID: 0}

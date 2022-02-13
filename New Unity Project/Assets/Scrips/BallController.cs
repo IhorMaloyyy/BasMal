@@ -9,6 +9,8 @@ public class BallController : MonoBehaviour
     [SerializeField] private float rotationSpeed;
 
     [SerializeField] private GameObject mainCamera;
+
+    public bool isBallActive; 
     private void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -16,7 +18,7 @@ public class BallController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isBallActive)
         {
             BallThrowing();
         }
@@ -28,6 +30,7 @@ public class BallController : MonoBehaviour
     {
         playerRb.isKinematic = false;
         playerRb.AddForce(transform.forward * ballForce, ForceMode.Impulse);
+        isBallActive = true;
     }
 
     private void BallRotation()
