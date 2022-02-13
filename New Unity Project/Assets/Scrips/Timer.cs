@@ -8,6 +8,18 @@ public class Timer : MonoBehaviour
 
     private float timeLeft = 60f;
 
+    public float TimeLeft
+    {
+        get
+        {
+            return timeLeft;
+        }
+        set
+        {
+            timeLeft = value;
+        }
+    }
+
     private void Update()
     {
         UpdateTimer();
