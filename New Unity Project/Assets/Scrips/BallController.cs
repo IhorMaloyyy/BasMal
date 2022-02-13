@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    private Rigidbody playerRb;
+    private Rigidbody ballRb;
     
     [SerializeField] private float ballForce = 4.0f;
 
     [SerializeField] private float rotationSpeed;
 
-    [SerializeField] private GameObject mainCamera;
+    private GameObject mainCamera;
 
     public bool isBallActive; 
     private void Start()
     {
-        playerRb = GetComponent<Rigidbody>();
+        ballRb = GetComponent<Rigidbody>();
         mainCamera = GameObject.Find("Main Camera");
     }
     private void Update()
@@ -28,8 +28,8 @@ public class BallController : MonoBehaviour
 
     private void BallThrowing()
     {
-        playerRb.isKinematic = false;
-        playerRb.AddForce(transform.forward * ballForce, ForceMode.Impulse);
+        ballRb.isKinematic = false;
+        ballRb.AddForce(transform.forward * ballForce, ForceMode.Impulse);
         isBallActive = true;
     }
 
