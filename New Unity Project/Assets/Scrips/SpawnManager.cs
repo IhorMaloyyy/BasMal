@@ -4,11 +4,8 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject ballPrefab;
 
-    private Vector3 spawnPos = new Vector3(2.375f, 9.995f, -35.106f);
-    void Start()
-    {
-        
-    }
+    private Vector3 spawnPos = new Vector3(0f, 2.5f, -38.66f);
+
 
     void FixedUpdate()
     {

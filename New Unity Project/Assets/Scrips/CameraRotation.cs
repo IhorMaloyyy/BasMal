@@ -6,6 +6,6 @@ public class CameraRotation : MonoBehaviour
     void Update()
     {
         float playerInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up, playerInput * rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, playerInput * rotationSpeed * Time.deltaTime, Space.World);
     }
 }

@@ -4,13 +4,11 @@ public class BallController : MonoBehaviour
 {
     private Rigidbody ballRb;
     
-    [SerializeField] private float ballForce = 4.0f;
-
-    [SerializeField] private float rotationSpeed;
+    private readonly float ballForce = 30f;
 
     private GameObject mainCamera;
 
-    public bool isBallActive; 
+    private bool isBallActive; 
     private void Start()
     {
         ballRb = GetComponent<Rigidbody>();
@@ -22,7 +20,10 @@ public class BallController : MonoBehaviour
         {
             BallThrowing();
         }
+    }
 
+    private void LateUpdate()
+    {
         BallRotation();
     }
 
