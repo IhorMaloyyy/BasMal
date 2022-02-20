@@ -4,7 +4,8 @@ public class BallController : MonoBehaviour
 {
     private Rigidbody ballRb;
     
-    private readonly float ballForce = 30f;
+    private readonly float ballForceForward = 20f;
+    [SerializeField] private  float ballForceUp = 7.5f;
 
     private GameObject mainCamera;
 
@@ -30,7 +31,8 @@ public class BallController : MonoBehaviour
     private void BallThrowing()
     {
         ballRb.isKinematic = false;
-        ballRb.AddForce(transform.forward * ballForce, ForceMode.Impulse);
+        ballRb.AddForce(transform.up * ballForceUp, ForceMode.Impulse);
+        ballRb.AddForce(transform.forward * ballForceForward, ForceMode.Impulse);
         isBallActive = true;
     }
 
