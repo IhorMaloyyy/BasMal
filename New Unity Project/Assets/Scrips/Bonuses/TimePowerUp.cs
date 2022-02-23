@@ -6,8 +6,10 @@ public class TimePowerUp : PowerUp
 
     private readonly float timeToAdd = 10f;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         timerScript = GameObject.Find("Timer").GetComponent<Timer>();
     }
 
