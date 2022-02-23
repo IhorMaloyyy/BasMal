@@ -6,8 +6,10 @@ public class BusketLowSpeedPowerUp : PowerUp
 
     private readonly float speedToSubstract = 0.0015f;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         basketMoverScript = GameObject.Find("Basket").GetComponent<BasketMover>();
     }
 

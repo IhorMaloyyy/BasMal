@@ -1,11 +1,14 @@
 using UnityEngine;
 using TMPro;
 
-public class Counter : MonoBehaviour
+public class ScoreCounter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
 
     private int score;
+
+    public int Score { get { return score; } set { score = value; } }
+    public TextMeshProUGUI ScoreText { get { return scoreText; } set { scoreText = value; } }
 
     private void Start()
     {

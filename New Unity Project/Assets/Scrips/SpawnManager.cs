@@ -7,20 +7,20 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 ballSpawnPos = new Vector3(0f, 2.5f, -38.66f);
 
-    private float powerupXRange = 15.0f;
-    private float powerupYSpawnPos = 10.0f;
-    private float powerupZSpawnPos = -24.59f;
+    private readonly float powerupXRange = 15.0f;
+    private readonly float powerupYSpawnPos = 10.0f;
+    private readonly float powerupZSpawnPos = -24.59f;
 
-    private float startDelay = 10.0f;
-    private float repeatDelay = 5.0f;
+    private readonly float startDelay = 10.0f;
+    private readonly float repeatDelay = 5.0f;
 
-    [SerializeField]private bool isPowerupOnScene = false;
+    private bool isPowerupOnScene = false;
     
     public bool IsPowerupOnScene { get{ return isPowerupOnScene; } set { isPowerupOnScene = value; } }
 
     private void Start()
     {
-        InvokeRepeating("PowerupSpawner", startDelay, repeatDelay);
+        InvokeRepeating(nameof(PowerupSpawner), startDelay, repeatDelay);
     }
 
     private void FixedUpdate()

@@ -19,15 +19,11 @@ public class Timer : MonoBehaviour
             timeLeft = value;
         }
     }
+    public TextMeshProUGUI TimerText { get { return timerText; } set { timerText = value; } }
 
     private void Update()
     {
         UpdateTimer();
-
-        if(timeLeft < 0f)
-        {
-            LoadCurrentScene();
-        }
     }
 
     private void UpdateTimer()
@@ -35,10 +31,4 @@ public class Timer : MonoBehaviour
         timeLeft -= Time.deltaTime;
         timerText.text = "Time: " + Mathf.Round(timeLeft);
     }
-
-    private void LoadCurrentScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
 }
