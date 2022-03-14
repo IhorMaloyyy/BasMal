@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class PowerUpAnimation : MonoBehaviour
 {
-    private float time = 0f;
-    private float prefabAmplitude = 0.25f;
-    private float movingFrequency = 2;
+    private  float time = 0f;
     private float offset = 0;
+    private readonly float prefabAmplitude = 0.25f;
+    private readonly float movingFrequency = 2;
+    
     private Vector3 startPosition;
     void Start()
     {
@@ -18,5 +19,7 @@ public class PowerUpAnimation : MonoBehaviour
         offset = prefabAmplitude * Mathf.Sin(time * movingFrequency);
 
         transform.position = startPosition + new Vector3(0, offset, 0);
+
+        
     }
 }
