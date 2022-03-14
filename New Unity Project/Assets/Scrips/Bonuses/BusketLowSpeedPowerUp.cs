@@ -1,10 +1,11 @@
 using UnityEngine;
+using System.Collections;
 
 public class BusketLowSpeedPowerUp : PowerUp
 {
     private BasketMover basketMoverScript;
 
-    private readonly float speedToSubstract = 0.0015f;
+    private readonly float speedToDivision = 2f;
 
     protected override void Start()
     {
@@ -17,11 +18,11 @@ public class BusketLowSpeedPowerUp : PowerUp
     {
         base.OnTriggerEnter(other);
 
-        SubstractionBasketSpeed(speedToSubstract);
+        SubstractionBasketSpeed();
     }
 
-    private void SubstractionBasketSpeed(float speedToSubstract)
+    private void SubstractionBasketSpeed()
     {
-        basketMoverScript.Step -= speedToSubstract;
+        basketMoverScript.Step /= speedToDivision;
     }
 }

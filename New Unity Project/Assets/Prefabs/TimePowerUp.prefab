@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3529262332373325011}
   - component: {fileID: 3529262332373325010}
   - component: {fileID: -3502130670763510951}
+  - component: {fileID: 547051140688498706}
   m_Layer: 0
   m_Name: TimePowerUp
   m_TagString: Untagged
@@ -106,5 +107,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc195ca1a27a57447a28d615ecd3deae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &547051140688498706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3529262332373325004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d6246bdc3c8f4478da39fc1c561cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
