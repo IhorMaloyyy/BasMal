@@ -155,6 +155,7 @@ MonoBehaviour:
   ballPrefab: {fileID: 6878465019155087778, guid: 47a8cf5020255cb44b524eb209e2497b, type: 3}
   powerupPrefab:
   - {fileID: 3529262332373325004, guid: fbfd0fd1cb30b1542819365c4f7f759a, type: 3}
+  - {fileID: 3529262332373325004, guid: 7616d86c82eec9446b11ed35a8ed6d21, type: 3}
 --- !u!4 &65445632
 Transform:
   m_ObjectHideFlags: 0

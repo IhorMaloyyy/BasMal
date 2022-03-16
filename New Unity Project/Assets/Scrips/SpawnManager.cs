@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 ballSpawnPos = new Vector3(0f, 2.5f, -38.66f);
 
-    private readonly float powerupXRange = 15.0f;
+    private readonly float powerupXRange = 10.0f;
     private readonly float powerupYSpawnPos = 10.0f;
     private readonly float powerupZSpawnPos = -24.59f;
 
