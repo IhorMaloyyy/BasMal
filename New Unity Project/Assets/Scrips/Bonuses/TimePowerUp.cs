@@ -4,7 +4,7 @@ public class TimePowerUp : PowerUp
 {
     private Timer timerScript;
 
-    private readonly float timeToAdd = 10f;
+    private readonly float timeToAdd = 5f;
 
     protected override void Start()
     {
