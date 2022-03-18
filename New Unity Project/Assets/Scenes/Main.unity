@@ -1916,6 +1916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 746582328}
   gameOverScoreText: {fileID: 437777449}
+  mainCamera: {fileID: 1859849604}
 --- !u!4 &1498841409
 Transform:
   m_ObjectHideFlags: 0
