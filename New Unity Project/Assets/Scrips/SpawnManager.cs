@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     private readonly float powerupZSpawnPos = -24.59f;
 
     private readonly float startDelay = 10.0f;
-    private readonly float repeatDelay = 5.0f;
+    private readonly float repeatDelay = 10.0f;
 
     private bool isPowerupOnScene = false;
     

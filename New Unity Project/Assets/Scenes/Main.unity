@@ -156,6 +156,7 @@ MonoBehaviour:
   powerupPrefab:
   - {fileID: 3529262332373325004, guid: fbfd0fd1cb30b1542819365c4f7f759a, type: 3}
   - {fileID: 3529262332373325004, guid: 7616d86c82eec9446b11ed35a8ed6d21, type: 3}
+  - {fileID: 3062564009488485362, guid: f66e81c3a60551b42b2221d57329de02, type: 3}
 --- !u!4 &65445632
 Transform:
   m_ObjectHideFlags: 0
@@ -1767,6 +1768,11 @@ RectTransform:
   m_AnchoredPosition: {x: 316, y: 108}
   m_SizeDelta: {x: 497.7446, y: 124.43622}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1449972662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 18a964e7994b99645990bb79a3ce78e6, type: 3}
+  m_PrefabInstance: {fileID: 1093391012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1479209815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,6 +1916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 746582328}
   gameOverScoreText: {fileID: 437777449}
+  mainCamera: {fileID: 1859849604}
 --- !u!4 &1498841409
 Transform:
   m_ObjectHideFlags: 0
@@ -2097,6 +2104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 754764384}
+  basket: {fileID: 1449972662}
 --- !u!1 &1826659330
 GameObject:
   m_ObjectHideFlags: 0

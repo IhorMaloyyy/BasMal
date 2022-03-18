@@ -6,9 +6,11 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private TextMeshProUGUI gameOverScoreText;
+    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private GameObject spawnManager;
+
     private ScoreCounter scoreCounterScript;
     private Timer timerScript;
-
 
     private void Start()
     {
@@ -30,6 +32,14 @@ public class GameManager : MonoBehaviour
         gameOverScoreText.text = "Your score is " + scoreCounterScript.Score;
         scoreCounterScript.ScoreText.enabled = false;
         timerScript.TimerText.enabled = false;
+        spawnManager.SetActive(false);
+
+        DisableControl();
+    }
+
+    private void DisableControl()
+    {
+        mainCamera.GetComponent<CameraRotation>().enabled = false;
     }
 
     public void LoadCurrentScene()

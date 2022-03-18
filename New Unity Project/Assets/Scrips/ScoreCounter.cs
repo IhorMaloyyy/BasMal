@@ -4,7 +4,11 @@ using TMPro;
 public class ScoreCounter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameObject basket;
+
     private BasketMover basketMoverScript;
+
+    private Vector3 basketDefaultScale = new Vector3(1, 1, 1);
 
     private int score;
     private readonly float defaultBasketSpeed = 0.003f;
@@ -23,6 +27,7 @@ public class ScoreCounter : MonoBehaviour
         AddScore();
         Destroy(other.gameObject);
         SetDefaultBasketSpeed();
+        SetDefaultBasketScale();
     }
 
     private void AddScore()
@@ -34,5 +39,10 @@ public class ScoreCounter : MonoBehaviour
     private void SetDefaultBasketSpeed()
     {
         basketMoverScript.Step = defaultBasketSpeed;
+    }
+
+    private void SetDefaultBasketScale()
+    {
+        basket.transform.localScale = basketDefaultScale;
     }
 }

@@ -7,7 +7,7 @@ public class CameraRotation : MonoBehaviour
     private float yAngle;
     private readonly float xAngle = -15;
 
-    void Update()
+    private void Update()
     {
         RotateInLimits();
     }
