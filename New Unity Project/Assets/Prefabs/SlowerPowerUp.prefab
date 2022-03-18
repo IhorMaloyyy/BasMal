@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 3529262332373325011}
   - component: {fileID: 3529262332373325010}
   - component: {fileID: 547051140688498706}
-  - component: {fileID: 3774683832840790242}
+  - component: {fileID: 6380746593001616302}
   m_Layer: 0
   m_Name: SlowerPowerUp
   m_TagString: Untagged
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807a2fac791edf649933fa7a876d7234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3774683832840790242
+--- !u!114 &6380746593001616302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3529262332373325004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21d6246bdc3c8f4478da39fc1c561cf9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b46d3705e85bd2468248840f3155b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &706380114265515723

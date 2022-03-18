@@ -10,7 +10,7 @@ public class TimePowerUp : PowerUp
     {
         base.Start();
 
-        timerScript = GameObject.Find("Timer").GetComponent<Timer>();
+        timerScript = GameObject.Find(nameof(Timer)).GetComponent<Timer>();
     }
 
     protected override void OnTriggerEnter(Collider other)

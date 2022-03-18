@@ -6,7 +6,7 @@ public class PowerUp : MonoBehaviour
 
     protected virtual void Start()
     {
-        spawnManagerScript = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        spawnManagerScript = GameObject.Find(nameof(SpawnManager)).GetComponent<SpawnManager>();
     }
 
     protected virtual void OnTriggerEnter(Collider other)
