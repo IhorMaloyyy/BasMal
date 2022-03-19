@@ -18,4 +18,9 @@ public class HitSound : MonoBehaviour
             powerUpSound.PlayOneShot(hitSound);
         }
     }
+
+    public void BusketSound()
+    {
+        powerUpSound.PlayOneShot(hitSound);
+    }
 }

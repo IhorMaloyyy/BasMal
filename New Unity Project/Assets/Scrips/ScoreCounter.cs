@@ -13,6 +13,9 @@ public class ScoreCounter : MonoBehaviour
     private int score;
     private readonly float defaultBasketSpeed = 0.003f;
 
+    private AudioSource ballSound;
+    [SerializeField] AudioClip ballHit;
+
     public int Score { get { return score; } set { score = value; } }
     public TextMeshProUGUI ScoreText { get { return scoreText; } set { scoreText = value; } }
 
@@ -20,11 +23,14 @@ public class ScoreCounter : MonoBehaviour
     {
         score = 0;
         basketMoverScript = GameObject.Find("Basket").GetComponent<BasketMover>();
+
+        ballSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         AddScore();
+        ballSound.PlayOneShot(ballHit);
         Destroy(other.gameObject);
         SetDefaultBasketSpeed();
         SetDefaultBasketScale();

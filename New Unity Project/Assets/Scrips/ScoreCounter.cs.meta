@@ -3,7 +3,10 @@ guid: 4fc0abb180a6f0a4ab2ffcc69edb75d1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - scoreText: {instanceID: 0}
+  - basket: {instanceID: 0}
+  - ballHit: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
