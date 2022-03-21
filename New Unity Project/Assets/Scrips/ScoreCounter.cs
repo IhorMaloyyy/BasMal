@@ -16,6 +16,8 @@ public class ScoreCounter : MonoBehaviour
     private AudioSource ballSound;
     [SerializeField] AudioClip ballHit;
 
+    private SpawnManager spawnManager;
+
     public int Score { get { return score; } set { score = value; } }
     public TextMeshProUGUI ScoreText { get { return scoreText; } set { scoreText = value; } }
 
@@ -25,6 +27,8 @@ public class ScoreCounter : MonoBehaviour
         basketMoverScript = GameObject.Find("Basket").GetComponent<BasketMover>();
 
         ballSound = GetComponent<AudioSource>();
+
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,8 +38,8 @@ public class ScoreCounter : MonoBehaviour
         Destroy(other.gameObject);
         SetDefaultBasketSpeed();
         SetDefaultBasketScale();
+        DisablePowerUpsActivity();
     }
-
     private void AddScore()
     {
         score++;
@@ -50,5 +54,13 @@ public class ScoreCounter : MonoBehaviour
     private void SetDefaultBasketScale()
     {
         basket.transform.localScale = basketDefaultScale;
+    }
+
+    private void DisablePowerUpsActivity()
+    {
+        for (int i = 0; i < spawnManager.ActivePowerUp.Length; i++)
+        {
+            spawnManager.ActivePowerUp[i] = false;
+        }
     }
 }
