@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HitSound : MonoBehaviour
 {
     private AudioSource powerUpSound;
     [SerializeField] private AudioClip hitSound;
-    void Start()
+
+    private readonly float volumeScale = 0.1f;
+
+    private void Start()
     {
         powerUpSound = GetComponent<AudioSource>();
     }
@@ -15,7 +16,7 @@ public class HitSound : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PowerUp"))
         {
-            powerUpSound.PlayOneShot(hitSound);
+            powerUpSound.PlayOneShot(hitSound, volumeScale);
         }
     }
 }
