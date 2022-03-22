@@ -14,7 +14,7 @@ public class BallController : MonoBehaviour
 
     private bool isBallActive;
 
-    public bool IsBallActive { get; }
+    public bool IsBallActive { get { return isBallActive; } }
     
 
     public float ForceMultyplier

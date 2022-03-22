@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bestScoreText;
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject spawnManager;
+    [SerializeField] private GameObject progressBar;
 
+    private BallController ballControllerScript;
     private ScoreCounter scoreCounterScript;
     private Timer timerScript;
 
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         scoreCounterScript = GameObject.Find("Cylinder").GetComponent<ScoreCounter>();
         timerScript = GameObject.Find("Timer").GetComponent<Timer>();
+        
     }
 
     private void Update()
@@ -35,6 +38,11 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        ProgressBarWidth();
     }
 
     private void GameOver()
@@ -70,6 +78,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    private void ProgressBarWidth()
+    {
+        ballControllerScript = GameObject.Find("Ball(Clone)").GetComponent<BallController>();
+        progressBar.transform.localScale = new Vector2(ballControllerScript.ForceMultyplier, 1);
+    }
+
     [System.Serializable]
 
     class SaveData
@@ -101,4 +115,5 @@ public class GameManager : MonoBehaviour
             bestPlayerName = data.playerName;
         }
     }
+
 }
