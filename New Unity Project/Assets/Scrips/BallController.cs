@@ -4,34 +4,49 @@ public class BallController : MonoBehaviour
 {
     private Rigidbody ballRb;
 
-    private readonly float ballForceForward = 20f;
+    private  float ballForceForward = 20f;
     [SerializeField] private float ballForceUp = 7.5f;
+    [SerializeField] private float forceMultiplier = 1;
+    private float maxMultiplierValue = 3f;
+
 
     private GameObject mainCamera;
 
     private bool isBallActive;
 
-    public bool IsBallActive 
+    public bool IsBallActive { get; }
+    
+
+    public float ForceMultyplier
     {
-       get
-       {
-           return isBallActive;
-       }
+        get { return forceMultiplier; } 
+        set
+        {
+            if (forceMultiplier > maxMultiplierValue){ forceMultiplier = maxMultiplierValue; }
+            else { forceMultiplier = value; }
+        }
     }
+
     private void Start()
     {
         ballRb = GetComponent<Rigidbody>();
         mainCamera = GameObject.Find("Main Camera");
     }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isBallActive)
+        if (Input.GetKey(KeyCode.Space) && !isBallActive)
+        {
+            ForceMultyplier += Time.deltaTime;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) && !isBallActive)
         {
             BallThrowing();
         }
     }
 
-    
+
 
     private void LateUpdate()
     {
@@ -43,7 +58,7 @@ public class BallController : MonoBehaviour
         isBallActive = true;
         ballRb.isKinematic = false;
         ballRb.AddForce(transform.up * ballForceUp, ForceMode.Impulse);
-        ballRb.AddForce(transform.forward * ballForceForward, ForceMode.Impulse);
+        ballRb.AddForce(transform.forward * (ballForceForward * forceMultiplier), ForceMode.Impulse);
     }
     private void BallRotation()
     {
