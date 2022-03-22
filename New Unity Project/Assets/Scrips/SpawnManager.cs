@@ -15,6 +15,7 @@ public class SpawnManager : MonoBehaviour
     private readonly float repeatDelay = 10.0f;
 
     private bool isPowerupOnScene = false;
+
     [SerializeField]private bool[] activePowerUp = new bool[3];
 
     public bool[] ActivePowerUp { get { return activePowerUp; } set { activePowerUp = value; } }
@@ -44,12 +45,12 @@ public class SpawnManager : MonoBehaviour
         float xRandomPos = Random.Range(-powerupXRange, powerupXRange);
 
         Vector3 spawnPos = new Vector3(xRandomPos, powerupYSpawnPos, powerupZSpawnPos);
+
         if (!isPowerupOnScene && !activePowerUp[powerupIndex])
         {
             Instantiate(powerupPrefab[powerupIndex], spawnPos, powerupPrefab[powerupIndex].transform.rotation);
             activePowerUp[powerupIndex] = true;
             isPowerupOnScene = true;
         }
-        
     }
 }
