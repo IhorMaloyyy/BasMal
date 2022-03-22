@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         gameOverScoreText.text = "Your score is " + scoreCounterScript.Score;
         scoreCounterScript.ScoreText.enabled = false;
         timerScript.TimerText.enabled = false;
-        spawnManager.SetActive(false);
+        Destroy(spawnManager);
 
         DisableControl();
 

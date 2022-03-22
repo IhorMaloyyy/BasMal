@@ -157,6 +157,7 @@ MonoBehaviour:
   - {fileID: 3529262332373325004, guid: fbfd0fd1cb30b1542819365c4f7f759a, type: 3}
   - {fileID: 3529262332373325004, guid: 7616d86c82eec9446b11ed35a8ed6d21, type: 3}
   - {fileID: 3062564009488485362, guid: f66e81c3a60551b42b2221d57329de02, type: 3}
+  activePowerUp: 000000
 --- !u!4 &65445632
 Transform:
   m_ObjectHideFlags: 0
@@ -2505,7 +2506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 754764384}
   basket: {fileID: 1449972662}
-  ballHit: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
+  ballHit: {fileID: 8300000, guid: b5ae0f84cfbf0b54589ce722d6467242, type: 3}
 --- !u!82 &1809586500
 AudioSource:
   m_ObjectHideFlags: 0
