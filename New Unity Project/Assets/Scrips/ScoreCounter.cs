@@ -13,8 +13,9 @@ public class ScoreCounter : MonoBehaviour
     private int score;
     private readonly float defaultBasketSpeed = 0.003f;
 
+    [SerializeField] private AudioClip ballHit;
     private AudioSource ballSound;
-    [SerializeField] AudioClip ballHit;
+    private readonly float volumeScale = 0.1f;
 
     private SpawnManager spawnManager;
 
@@ -34,7 +35,7 @@ public class ScoreCounter : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         AddScore();
-        ballSound.PlayOneShot(ballHit);
+        ballSound.PlayOneShot(ballHit, volumeScale);
         Destroy(other.gameObject);
         SetDefaultBasketSpeed();
         SetDefaultBasketScale();

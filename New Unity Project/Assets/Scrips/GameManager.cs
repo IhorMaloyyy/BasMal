@@ -80,9 +80,11 @@ public class GameManager : MonoBehaviour
 
     public void SaveScore()
     {
-        SaveData data = new SaveData();
-        data.bestScoreSave = bestScore;
-        data.playerName = bestPlayerName;
+        SaveData data = new SaveData
+        {
+            bestScoreSave = bestScore,
+            playerName = bestPlayerName
+        };
 
         string json = JsonUtility.ToJson(data);
 

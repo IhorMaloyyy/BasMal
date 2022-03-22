@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [SerializeField] private InputField inputField;
+
     public static MainMenuManager Instance;
-    public InputField inputField;
     public TextMeshProUGUI bestScoreText;
 
     public string playerName;
