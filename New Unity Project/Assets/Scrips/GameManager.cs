@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,11 +39,18 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+
+        if (Input.GetKey(KeyCode.Space) && !ballControllerScript.IsBallActive)
+        {
+            ChangeProgerssBarColor();
+        }
     }
 
     private void FixedUpdate()
     {
-        ProgressBarWidth();
+        ChangeProgressBarWidth();
+
+        
     }
 
     private void GameOver()
@@ -78,10 +86,15 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    private void ProgressBarWidth()
+    private void ChangeProgressBarWidth()
     {
         ballControllerScript = GameObject.Find("Ball(Clone)").GetComponent<BallController>();
-        progressBar.transform.localScale = new Vector2(ballControllerScript.ForceMultyplier, 1);
+        progressBar.transform.localScale = new Vector2(1, ballControllerScript.ForceMultyplier * 10);
+    }
+
+    private void ChangeProgerssBarColor()
+    {
+        progressBar.GetComponent<Image>().color = new Color(ballControllerScript.ForceMultyplier / 3, 1, 0, 1);
     }
 
     [System.Serializable]

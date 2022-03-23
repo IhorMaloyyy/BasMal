@@ -4,10 +4,10 @@ public class BallController : MonoBehaviour
 {
     private Rigidbody ballRb;
 
-    private  float ballForceForward = 20f;
+    private readonly float ballForceForward = 20f;
     [SerializeField] private float ballForceUp = 7.5f;
-    [SerializeField] private float forceMultiplier = 1;
-    private float maxMultiplierValue = 3f;
+    private float forceMultiplier;
+    private readonly float maxMultiplierValue = 3f;
 
 
     private GameObject mainCamera;
@@ -45,8 +45,6 @@ public class BallController : MonoBehaviour
             BallThrowing();
         }
     }
-
-
 
     private void LateUpdate()
     {
