@@ -8,10 +8,10 @@ public class ScoreCounter : MonoBehaviour
 
     private BasketMover basketMoverScript;
 
-    private Vector3 basketDefaultScale = new Vector3(1, 1, 1);
+    private Vector3 basketDefaultScale = new Vector3(1f, 1f, 1f);
 
     private int score;
-    private readonly float defaultBasketSpeed = 0.003f;
+    private readonly float defaultBasketSpeed = 0.002f;
 
     [SerializeField] private AudioClip ballHit;
     private AudioSource ballSound;

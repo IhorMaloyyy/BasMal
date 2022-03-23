@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        scoreCounterScript = GameObject.Find("Cylinder").GetComponent<ScoreCounter>();
+        scoreCounterScript = GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>();
         timerScript = GameObject.Find("Timer").GetComponent<Timer>();
         
     }
@@ -49,8 +49,6 @@ public class GameManager : MonoBehaviour
     private void FixedUpdate()
     {
         ChangeProgressBarWidth();
-
-        
     }
 
     private void GameOver()

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class BasketMover : MonoBehaviour
 {
-    private Vector3 startPosition = new Vector3(20, 0, -10);
-    private Vector3 endPosition = new Vector3(-20, 0, -10);
+    private Vector3 startPosition = new Vector3(15, 10, -7.25f);
+    private Vector3 endPosition = new Vector3(-15, 10, -7.25f);
 
-    private float step = 0.003f;
+    private float step = 0.002f;
     private float progress;
     private readonly float minProgress = 0f;
     private readonly float maxProgress = 1f;

@@ -10,7 +10,7 @@ public class LargeBasketPowerUp : PowerUp
     {
         base.Start();
 
-        basket = GameObject.Find(nameof(basket));
+        basket = GameObject.Find("Basket");
     }
 
     protected override void OnTriggerEnter(Collider other)
