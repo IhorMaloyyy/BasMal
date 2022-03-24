@@ -36,7 +36,6 @@ public class ScoreCounter : MonoBehaviour
     {
         AddScore();
         ballSound.PlayOneShot(ballHit, volumeScale);
-        Destroy(other.gameObject);
         SetDefaultBasketSpeed();
         SetDefaultBasketScale();
         DisablePowerUpsActivity();
