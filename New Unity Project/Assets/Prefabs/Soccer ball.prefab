@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6878465019155087782
 Transform:
   m_ObjectHideFlags: 0
@@ -77,7 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf59574890767ea4ca1fe3eddcbf4535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballForceUp: 7.5
 --- !u!82 &-8072475013417783419
 AudioSource:
   m_ObjectHideFlags: 0

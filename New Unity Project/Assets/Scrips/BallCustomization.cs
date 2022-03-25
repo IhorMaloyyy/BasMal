@@ -2,10 +2,19 @@ using UnityEngine;
 
 public class BallCustomization : MonoBehaviour
 {
-    [SerializeField] private GameObject[] ballPrefabs;
+    [SerializeField] private GameObject ballPrefab;
+    [SerializeField] private Material[] ballMaterials;
 
-    public void SetBallPrefab(int ballID)
+    private Renderer ballRenderer;
+
+
+    private void Start()
     {
-        ballPrefabs[ballID].SetActive(true);
+        ballRenderer = ballPrefab.GetComponentInChildren<Renderer>();
+    }
+
+    public void SetBallMaterial()
+    {
+        ballRenderer.material = ballMaterials[1];
     }
 }
