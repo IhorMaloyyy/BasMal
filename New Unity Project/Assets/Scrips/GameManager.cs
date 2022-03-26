@@ -12,13 +12,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject spawnManager;
     [SerializeField] private GameObject progressBar;
-
+    [SerializeField] private GameObject pauseMenu;
+    
+    private AudioSource audioSource;
     private BallController ballControllerScript;
     private ScoreCounter scoreCounterScript;
     private Timer timerScript;
 
     public int bestScore;
     public string bestPlayerName;
+
+    private bool isGamePaused = false;
 
     private void Awake()
     {
@@ -30,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         scoreCounterScript = GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>();
         timerScript = GameObject.Find("Timer").GetComponent<Timer>();
+        audioSource = GameObject.Find("AudioSource").GetComponent<AudioSource>();
         
     }
 
@@ -44,6 +49,8 @@ public class GameManager : MonoBehaviour
         {
             ChangeProgerssBarColor();
         }
+
+        PauseManager();
     }
 
     private void FixedUpdate()
@@ -94,6 +101,42 @@ public class GameManager : MonoBehaviour
     {
         progressBar.GetComponent<Image>().color = new Color(ballControllerScript.ForceMultyplier / 3, 1, 0, 1);
     }
+
+    private void PauseManager()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isGamePaused) { ResumeGame(); }
+
+            else { PauseMenu(); }
+        }   
+
+    }
+    
+    private void PauseMenu()
+    {
+        isGamePaused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        audioSource.Pause();
+    }
+    
+    public void ResumeGame()
+    {
+        isGamePaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        audioSource.Play();
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu"); 
+    }
+
+
+
+
 
     [System.Serializable]
 
