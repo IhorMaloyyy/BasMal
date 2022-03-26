@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject spawnManager;
     [SerializeField] private GameObject progressBar;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject soundXMark;
+
+    [SerializeField] private Slider volumeSlider;
     
     private AudioSource audioSource;
     private BallController ballControllerScript;
@@ -35,7 +38,6 @@ public class GameManager : MonoBehaviour
         scoreCounterScript = GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>();
         timerScript = GameObject.Find("Timer").GetComponent<Timer>();
         audioSource = GameObject.Find("AudioSource").GetComponent<AudioSource>();
-        
     }
 
     private void Update()
@@ -51,6 +53,8 @@ public class GameManager : MonoBehaviour
         }
 
         PauseManager();
+
+        VolumeChecker();
     }
 
     private void FixedUpdate()
@@ -132,6 +136,36 @@ public class GameManager : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene("Menu"); 
+    }
+
+    public void SwitchVolume()
+    {
+        if (audioSource.volume == 0)
+        {
+            audioSource.volume = 0.05f;
+        }
+        else 
+        { 
+            audioSource.volume = 0;
+        }
+    }
+
+    private void VolumeChecker()
+    {
+        volumeSlider.value = audioSource.volume;
+        if (audioSource.volume == 0)
+        {
+            soundXMark.SetActive(true);
+        }
+        else
+        {
+            soundXMark.SetActive(false);
+        }
+    }
+
+    public void VolumeScale()
+    {
+        audioSource.volume = volumeSlider.value;
     }
 
 
