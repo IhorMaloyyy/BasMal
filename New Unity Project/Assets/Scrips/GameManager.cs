@@ -10,9 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject spawnManager;
     [SerializeField] private GameObject progressBar;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject soundXMark;
 
-    [SerializeField] private TextMeshProUGUI gameOverScoreText;
-    [SerializeField] private TextMeshProUGUI bestScoreText;
+    [SerializeField] private Slider volumeSlider;
+    
+    private AudioSource audioSource;
 
     private BallController ballControllerScript;
     private ScoreCounter scoreCounterScript;
@@ -20,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     public int bestScore;
     public string bestPlayerName;
+
+    private bool isGamePaused = false;
 
     private void Awake()
     {
@@ -31,7 +36,7 @@ public class GameManager : MonoBehaviour
     {
         scoreCounterScript = GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>();
         timerScript = GameObject.Find("Timer").GetComponent<Timer>();
-        
+        audioSource = GameObject.Find("AudioSource").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -45,6 +50,10 @@ public class GameManager : MonoBehaviour
         {
             ChangeProgerssBarColor();
         }
+
+        PauseManager();
+
+        VolumeChecker();
     }
 
     private void FixedUpdate()
@@ -98,6 +107,72 @@ public class GameManager : MonoBehaviour
     {
         progressBar.GetComponent<Image>().color = new Color(ballControllerScript.ForceMultyplier / 3, 1, 0, 1);
     }
+
+    private void PauseManager()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isGamePaused) { ResumeGame(); }
+
+            else { PauseMenu(); }
+        }   
+
+    }
+    
+    private void PauseMenu()
+    {
+        isGamePaused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        audioSource.Pause();
+    }
+    
+    public void ResumeGame()
+    {
+        isGamePaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        audioSource.Play();
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu"); 
+    }
+
+    public void SwitchVolume()
+    {
+        if (audioSource.volume == 0)
+        {
+            audioSource.volume = 0.05f;
+        }
+        else 
+        { 
+            audioSource.volume = 0;
+        }
+    }
+
+    private void VolumeChecker()
+    {
+        volumeSlider.value = audioSource.volume;
+        if (audioSource.volume == 0)
+        {
+            soundXMark.SetActive(true);
+        }
+        else
+        {
+            soundXMark.SetActive(false);
+        }
+    }
+
+    public void VolumeScale()
+    {
+        audioSource.volume = volumeSlider.value;
+    }
+
+
+
+
 
     [System.Serializable]
 
