@@ -8,8 +8,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private InputField inputField;
 
     public static MainMenuManager Instance;
-    public TextMeshProUGUI bestScoreText;
 
+    public TextMeshProUGUI bestScoreText;
     public string playerName;
 
     private void Awake()

@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
-    [SerializeField] private TextMeshProUGUI gameOverScoreText;
-    [SerializeField] private TextMeshProUGUI bestScoreText;
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject spawnManager;
     [SerializeField] private GameObject progressBar;
+
+    [SerializeField] private TextMeshProUGUI gameOverScoreText;
+    [SerializeField] private TextMeshProUGUI bestScoreText;
 
     private BallController ballControllerScript;
     private ScoreCounter scoreCounterScript;
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(timerScript.TimeLeft < 0)
+        if (timerScript.TimeLeft < 0)
         {
             GameOver();
         }
@@ -48,7 +49,10 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ChangeProgressBarWidth();
+        if (timerScript.TimeLeft > 0)
+        {
+            ChangeProgressBarWidth();
+        }
     }
 
     private void GameOver()

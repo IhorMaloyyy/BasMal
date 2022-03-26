@@ -8,8 +8,8 @@ public class SpawnManager : MonoBehaviour
     private Vector3 ballSpawnPos = new Vector3(0f, 2.5f, -38.66f);
 
     private readonly float powerupXRange = 10.0f;
-    private readonly float powerupYSpawnPos = 10.0f;
-    private readonly float powerupZSpawnPos = -24.59f;
+    private readonly float powerupYSpawnPos = 12.0f;
+    private readonly float powerupZSpawnPos = -10.0f;
 
     private readonly float startDelay = 10.0f;
     private readonly float repeatDelay = 10.0f;
