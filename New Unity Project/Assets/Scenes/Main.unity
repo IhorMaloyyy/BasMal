@@ -3551,13 +3551,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 746582328}
-  gameOverScoreText: {fileID: 437777449}
-  bestScoreText: {fileID: 561408410}
   mainCamera: {fileID: 1859849604}
   spawnManager: {fileID: 65445630}
   progressBar: {fileID: 234354856}
   pauseMenu: {fileID: 157737429}
   soundXMark: {fileID: 1265824105}
+  bestScoreText: {fileID: 561408410}
+  gameOverScoreText: {fileID: 437777449}
   volumeSlider: {fileID: 329147227}
   bestScore: 0
   bestPlayerName: 
