@@ -4054,6 +4054,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 419252662, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1fbf167529f01c24c81f9208b96204d2, type: 2}
+    - target: {fileID: 419252662, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2498835182857043657, guid: 1fbf167529f01c24c81f9208b96204d2, type: 2}
+    - target: {fileID: 419252663, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2498835182857043657, guid: 1fbf167529f01c24c81f9208b96204d2, type: 2}
     - target: {fileID: 2099119737721913715, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
       propertyPath: m_Name
       value: Schoolboard
