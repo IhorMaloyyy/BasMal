@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class BallRotation : MonoBehaviour
 {
-    
     private BallController ballControllerScript;
-    private float rotationSpeed = 20f;
-    private float xRotationAngel = 45f;
-    private float yRotationAngel = 10f;
-    private float zRotationAngel = 10f;
-    void Start()
+
+    private readonly float rotationSpeed = 20f;
+    private readonly float xRotationAngel = 45f;
+    private readonly float yRotationAngel = 10f;
+    private readonly float zRotationAngel = 10f;
+
+    private void Start()
     {
         ballControllerScript = GameObject.Find("Ball(Clone)").GetComponent<BallController>();
     }
 
-    void Update()
+    private void Update()
     {
         if (ballControllerScript.IsBallActive)
         {
-            transform.Rotate(new Vector3(-xRotationAngel, yRotationAngel, zRotationAngel) * Time.deltaTime * rotationSpeed);
+            transform.Rotate(rotationSpeed * Time.deltaTime * new Vector3(-xRotationAngel, yRotationAngel, zRotationAngel));
         }
     }
 }

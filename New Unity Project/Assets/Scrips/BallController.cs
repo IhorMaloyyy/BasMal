@@ -6,8 +6,8 @@ public class BallController : MonoBehaviour
 
     private GameObject mainCamera;
 
-    private readonly float ballForceForward = 11f;
-    private readonly float ballForceUp = 6f;
+    private readonly float ballForceForward = 10f;
+    private readonly float ballForceUp = 8f;
     private readonly float maxMultiplierValue = 3f;
 
     private float forceMultiplier;
@@ -54,8 +54,7 @@ public class BallController : MonoBehaviour
     {
         isBallActive = true;
         ballRb.isKinematic = false;
-        ballRb.AddForce(transform.up * (ballForceUp * forceMultiplier), ForceMode.Impulse);
-        ballRb.AddForce(transform.forward * (ballForceForward * forceMultiplier), ForceMode.Impulse);
+        ballRb.AddRelativeForce(0, ballForceUp * forceMultiplier, ballForceForward * forceMultiplier, ForceMode.Impulse);
     }
 
     private void BallRotation()
