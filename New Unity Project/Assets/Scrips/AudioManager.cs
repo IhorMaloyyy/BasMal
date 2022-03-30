@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField]private int randomSongIndex;
 
-    private void Start()
+    private void Awake()
     {
         audioSourceComponent = GetComponent<AudioSource>();
 

@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
     
     private AudioSource audioSource;
+    [SerializeField] private AudioClip[] audioClips;
+    private int randomSongIndex;
 
     private BallController ballControllerScript;
     private ScoreCounter scoreCounterScript;
@@ -29,17 +31,19 @@ public class GameManager : MonoBehaviour
 
     private bool isGamePaused = false;
 
+
     private void Awake()
     {
         LoadScore();
         bestScoreText.text = "Best Score : " + bestPlayerName + " - " + bestScore;
+
+        RandomStartSong();
     }
 
     private void Start()
     {
         scoreCounterScript = GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>();
         timerScript = GameObject.Find("Timer").GetComponent<Timer>();
-        audioSource = GameObject.Find("AudioSource").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -171,6 +175,15 @@ public class GameManager : MonoBehaviour
     public void VolumeScale()
     {
         audioSource.volume = volumeSlider.value;
+    }
+
+    private void RandomStartSong()
+    {
+        audioSource = GameObject.Find("AudioSource").GetComponent<AudioSource>();
+
+        randomSongIndex = Random.Range(0, audioClips.Length);
+        audioSource.clip = audioClips[randomSongIndex];
+        audioSource.Play();
     }
 
 
