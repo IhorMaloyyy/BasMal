@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI gameOverScoreText;
     [SerializeField] private TextMeshPro bestScoreText;
+    [SerializeField] private TextMeshPro lastScoresText;
 
     [SerializeField] private Slider volumeSlider;
     
@@ -25,14 +26,26 @@ public class GameManager : MonoBehaviour
     private Timer timerScript;
 
     public int bestScore;
+    public int[] lastScores = new int[5];
+
     public string bestPlayerName;
+    public string[] lastPlayerNames = new string[5];
 
     private bool isGamePaused = false;
+    private bool isGameOver = false;
 
     private void Awake()
     {
         LoadScore();
         bestScoreText.text = "Best Score : " + bestPlayerName + " - " + bestScore;
+        lastScoresText.text = $"Ðrevious attempts: \n";
+
+        
+
+        for (int i = 0; i < lastScores.Length; i++)
+        {
+            lastScoresText.text += $"{lastScores[i]} - {lastPlayerNames[i]} \n";
+        }
     }
 
     private void Start()
@@ -44,9 +57,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (timerScript.TimeLeft < 0)
+        if (timerScript.TimeLeft < 0 && !isGameOver)
         {
             GameOver();
+            SaveScore();
         }
 
         if (Input.GetKey(KeyCode.Space) && !ballControllerScript.IsBallActive)
@@ -69,6 +83,8 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        isGameOver = true;
+
         gameOverScreen.SetActive(true);
         gameOverScoreText.text = "Your score is " + scoreCounterScript.Score;
         scoreCounterScript.ScoreText.enabled = false;
@@ -78,6 +94,8 @@ public class GameManager : MonoBehaviour
         DisableControl();
 
         SetBestScore();
+        SetLastScores();
+
     }
 
     private void SetBestScore()
@@ -88,6 +106,18 @@ public class GameManager : MonoBehaviour
             bestPlayerName = MainMenuManager.Instance.playerName;
             SaveScore();
         }
+    }
+
+    private void SetLastScores()
+    {
+        for (int i = lastScores.Length - 1; i > 0; i--)
+        {
+            lastScores[i] = lastScores[i - 1];
+            lastPlayerNames[i] = lastPlayerNames[i - 1];
+        }
+
+        lastScores[0] = scoreCounterScript.Score;
+        lastPlayerNames[0] = MainMenuManager.Instance.playerName;
     }
 
     private void DisableControl()
@@ -182,7 +212,10 @@ public class GameManager : MonoBehaviour
     class SaveData
     {
         public int bestScoreSave;
-        public string playerName;
+        public int[] lastScoresSave = new int[5];
+
+        public string playerNameSave;
+        public string[] lastPlayerNamesSave = new string[5];
     }
 
     public void SaveScore()
@@ -190,7 +223,10 @@ public class GameManager : MonoBehaviour
         SaveData data = new SaveData
         {
             bestScoreSave = bestScore,
-            playerName = bestPlayerName
+            playerNameSave = bestPlayerName,
+
+            lastScoresSave = lastScores,
+            lastPlayerNamesSave = lastPlayerNames,
         };
 
         string json = JsonUtility.ToJson(data);
@@ -207,7 +243,10 @@ public class GameManager : MonoBehaviour
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
             bestScore = data.bestScoreSave;
-            bestPlayerName = data.playerName;
+            bestPlayerName = data.playerNameSave;
+
+            lastScores = data.lastScoresSave;
+            lastPlayerNames = data.lastPlayerNamesSave;
         }
     }
 
