@@ -241,12 +241,12 @@ public class GameManager : MonoBehaviour
 
         string json = JsonUtility.ToJson(data);
 
-        File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+        File.WriteAllText("D:/UnityHub/Projects/BasMal/New Unity Project/ProjectSettings/Packages/com.unity.connect.share/savefile.json", json);
     }
 
     public void LoadScore()
     {
-        string path = Application.persistentDataPath + "/savefile.json";
+        string path = "D:/UnityHub/Projects/BasMal/New Unity Project/ProjectSettings/Packages/com.unity.connect.share/savefile.json";
 
         if (File.Exists(path))
         {
