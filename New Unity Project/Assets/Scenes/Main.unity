@@ -4087,12 +4087,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 755061361322341, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
       propertyPath: m_margin.w
-      value: 3.241746
+      value: -4.1960735
       objectReference: {fileID: 0}
     - target: {fileID: 755061361322341, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 1fbf167529f01c24c81f9208b96204d2, type: 2}
+    - target: {fileID: 755061361322341, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
+      propertyPath: m_lineSpacing
+      value: -70
+      objectReference: {fileID: 0}
     - target: {fileID: 755061361322341, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
       propertyPath: m_fontSizeBase
       value: 12
@@ -4103,7 +4107,7 @@ PrefabInstance:
       objectReference: {fileID: 2498835182857043657, guid: 1fbf167529f01c24c81f9208b96204d2, type: 2}
     - target: {fileID: 755061361322341, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
       propertyPath: m_VerticalAlignment
-      value: 512
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 755061361322341, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -4143,7 +4147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7602959297711124620, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.82
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7602959297711124620, guid: baa8bd3017e63144692c201b6e686da2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         {
             lastScoresText.text += $"{lastScores[i]} - {lastPlayerNames[i]} \n";
         }
+        RandomStartSong();
     }
 
     private void Start()
